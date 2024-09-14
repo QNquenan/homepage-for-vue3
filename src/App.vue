@@ -66,7 +66,9 @@
         <b><a href="https://www.liushen.fun/sites/">清羽飞扬</a></b>
         等主页，感谢他们awa
       </p>
-      <p>项目已经开源：<a href="https://github.com/QNquenan/homePage">https://github.com/QNquenan/homePage</a></p>
+      <p>项目已经开源：<a
+          href="https://github.com/QNquenan/homepage-for-vue3">https://github.com/QNquenan/homepage-for-vue3</a>
+      </p>
     </div>
 
     <template #footer>
