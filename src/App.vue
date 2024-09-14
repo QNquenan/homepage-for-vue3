@@ -1,4 +1,8 @@
 <template>
+  <div class="bgBox">
+    <img src="./assets/img/bg.webp" alt="">
+  </div>
+
   <div class="bgGrid">
     <div class="Grid">
       <div class="mask"></div>
@@ -48,7 +52,7 @@
   </div>
 
   <div class="footer">
-    All Rights Reserved To ©Quenan | 2024
+    By Quenan | ©2024
   </div>
 
   <vs-dialog overlay-blur width="550px" not-center v-model="active">
@@ -59,7 +63,7 @@
     </template>
 
     <div class="con-content">
-      <p>本站基于 <b>Vue2</b> 和 <b>Vuesax</b> 框架构建！</p>
+      <p>本站基于 <b>Vue3</b> 和 <b>Vuesax</b> 框架构建！</p>
       <p>你可以从这里前往 <b>我的博客、GitHub、哔哩哔哩、网易云歌单</b> 以及给我发 <b>邮件</b> ！</p>
       <p>本项目借鉴了
         <b><a href="https://pzj.us.kg/">pzjawa</a></b> 、
@@ -168,6 +172,12 @@ export default {
 }
 
 @media screen and (max-width: 762px) {
+  .bgBox {
+    width: 50% !important;
+    right: 62vw !important;
+    z-index: 0 !important;
+  }
+
   #app {
     margin: 0;
     padding: 0;
@@ -193,12 +203,16 @@ export default {
       background-position: -20em !important;
 
       .typewriter {
-        text-shadow: 0 0 10px #fff;
+        top: 60dvh !important;
       }
 
       .info {
         flex-direction: column;
         align-items: center;
+
+        .infoText {
+          font-size: 1em !important
+        }
 
         .header {
           margin: 0 0 1em 0;
@@ -275,6 +289,14 @@ export default {
   }
 }
 
+.bgBox {
+  width: 600px;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  right: 65vw;
+}
+
 #app {
   margin: 0;
   padding: 0;
@@ -330,12 +352,10 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background: no-repeat url(./assets/img/bg.webp);
-    background-size: contain;
-    background-position: left;
 
     .btns {
       display: flex;
+      margin-top: 50px;
 
       .vs-button {
         width: 3.5em;
@@ -350,6 +370,9 @@ export default {
     .typewriter {
       display: flex;
       margin-bottom: 2em;
+      top: 53vh;
+      position: absolute;
+      text-align: center;
 
       i {
         margin: 0 1em;
