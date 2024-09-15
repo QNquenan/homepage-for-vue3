@@ -1,10 +1,10 @@
 <template>
-  <div class="bgBox">
-    <img src="./assets/img/bg.webp" alt="">
+  <div class="bgBox" v-motion :initial="{ opacity: 0, y: 25 }" :enter="{ opacity: 1, y: 0 }" :duration="1000">
+    <img src="https://i.p-i.vip/43/20240915-66e6e5abe3e97.webp" alt="">
   </div>
 
   <div class="bgGrid">
-    <div class="Grid">
+    <div class="Grid" v-motion :initial="{ opacity: 0, y: -25 }" :enter="{ opacity: 1, y: 0 }" :duration="1000">
       <div class="mask"></div>
       <div class="itemGrid-row" v-for="i in gridRows" :key="i">
         <div class="itemGrid-cols" v-for="j in gridCols" :key="j"></div>
@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div class="main">
+  <div class="main" v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1 }" :duration="1000">
     <div class="info">
       <div class="header">
         <img src="https://i.p-i.vip/43/20240913-66e403f2331ec.webp" alt="">
@@ -33,7 +33,8 @@
     </div>
 
     <div class="btns">
-      <vs-button v-for="i in btnList" :key="i.animate" :color="i.color" animation-type="scale" :href="i.href" blank>
+      <vs-button type="gradient" v-for="i in btnList" :key="i.animate" :color="i.color" animation-type="scale"
+        :href="i.href" blank>
         <i :class="`iconfont ${i.icon}`"></i>
 
         <template #animate>
@@ -63,16 +64,44 @@
     </template>
 
     <div class="con-content">
-      <p>本站基于 <b>Vue3</b> 和 <b>Vuesax</b> 框架构建！</p>
-      <p>你可以从这里前往 <b>我的博客、GitHub、哔哩哔哩、网易云歌单</b> 以及给我发 <b>邮件</b> ！</p>
-      <p>本项目借鉴了
-        <b><a href="https://pzj.us.kg/">pzjawa</a></b> 、
-        <b><a href="https://www.liushen.fun/sites/">清羽飞扬</a></b>
-        等主页，感谢他们awa
-      </p>
-      <p>项目已经开源：<a
-          href="https://github.com/QNquenan/homepage-for-vue3">https://github.com/QNquenan/homepage-for-vue3</a>
-      </p>
+
+      <vs-alert color="#FE8599" type="gradient" v-model:hidden-content="techHidden">
+        <template #title>技术栈</template>
+        <p>本站基于以下技术搭建和以下服务商部署</p>
+
+        <vs-avatar-group class="aboutAva" float max="8">
+
+          <vs-tooltip placement="top" v-for="i in avaters" :key="i.content">
+            <vs-avatar :color="i.color">
+              <i :class="`iconfont ${i.icon}`"></i>
+            </vs-avatar>
+
+            <template #content>{{ i.content }}</template>
+          </vs-tooltip>
+
+          <vs-tooltip placement="top">
+            <vs-avatar color="#FF6D1A">
+              初
+            </vs-avatar>
+
+            <template #content>初七云cdn</template>
+          </vs-tooltip>
+
+        </vs-avatar-group>
+      </vs-alert>
+
+      <vs-alert color="#00BCD4" type="gradient" v-model:hidden-content="aboutHidden">
+        <template #title>关于项目</template>
+
+        <p>你可以从这里访问 <b>我的博客、GitHub、哔哩哔哩、网易云歌单</b> 以及给我发 <b>邮件</b> ！</p>
+        <p>本项目借鉴了
+          <b><a href="https://pzj.us.kg/">pzjawa</a></b> 、
+          <b><a href="https://www.liushen.fun/sites/">清羽飞扬</a></b>
+          等主页，感谢他们awa
+        </p>
+        <p>项目已经开源：</p>
+        <p><a href="https://github.com/QNquenan/homepage-for-vue3">https://github.com/QNquenan/homepage-for-vue3</a></p>
+      </vs-alert>
     </div>
 
     <template #footer>
@@ -94,6 +123,8 @@ import { VsNotification } from 'vuesax-alpha'
 export default {
   data() {
     return {
+      techHidden: true,
+      aboutHidden: true,
       typingTexts: [
         "你好鸭，欢迎来到我的主页！",
         "彼方尚有荣光在，世界不止眼前的苟且，还有诗和远方",
@@ -121,7 +152,7 @@ export default {
         },
         {
           icon: 'icon-youjian1',
-          animate: 'E-meil',
+          animate: 'E-mail',
           color: '#FACB1E',
           href: 'mailto:qn2987271942@outlook.com'
         },
@@ -131,6 +162,38 @@ export default {
           color: '#D81E06',
           href: 'https://music.163.com/#/playlist?id=2696501847&creatorId=1785635020'
         },
+      ],
+      avaters: [
+        {
+          color: '#43B884',
+          icon: 'icon-vue',
+          content: 'Vue3'
+        },
+        {
+          color: '#46C93A',
+          icon: 'icon-vuesax-linear-vuesax',
+          content: 'Vuesax for Vue3'
+        },
+        {
+          color: '#1FD0ED',
+          icon: 'icon-less',
+          content: 'Less'
+        },
+        {
+          color: '#FFBA00',
+          icon: 'icon-vite',
+          content: 'Vite'
+        },
+        {
+          color: '#000',
+          icon: 'icon-vercel',
+          content: 'Vercel'
+        },
+        {
+          color: '#000',
+          icon: 'icon-github',
+          content: 'Github'
+        }
       ],
       upTime: '2024-09-14',
       version: 'beta1',
@@ -144,7 +207,6 @@ export default {
       VsNotification({
         icon: '<i class="iconfont icon-guanyu"></i>',
         progressAuto: true,
-        color: '#FE8599',
         position: 'top-center',
         title: '当前的版本',
         content: `现在是 ${this.upTime} 更新的 ${this.version}`
@@ -155,20 +217,18 @@ export default {
 </script>
 
 <style lang="less">
-@import url(//at.alicdn.com/t/c/font_4685493_msgccteaht.css);
+@import url(//at.alicdn.com/t/c/font_4685493_qjuqd6re1.css); // 阿里巴巴图标库
+@import url(https://fonts.googleapis.cn/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap); // 谷歌字体库
 
 * {
   margin: 0;
   padding: 0;
-  font-family: JetBrainsMomo !important;
+  font-family: JetBrains Mono !important;
   border: none;
-  outline: none;
-}
 
-@font-face {
-  font-family: JetBrainsMomo;
-  font-display: swap;
-  src: url('./assets/fonts/JetBrainsMono-Medium.woff2');
+  .vs-button {
+    outline: none !important;
+  }
 }
 
 @media screen and (max-width: 762px) {
@@ -223,6 +283,18 @@ export default {
 }
 
 .vs-dialog {
+
+  .vs-alert--gradient {
+    margin: 1em 0;
+
+    .aboutAva {
+      display: flex;
+      justify-content: space-evenly !important;
+      margin-top: 1em
+    }
+  }
+
+
   .vs-dialog-original {
     .vs-dialog__header {
       padding: 20px 16px !important;
@@ -234,6 +306,10 @@ export default {
   }
 
   .vs-dialog__content {
+    .vs-alert__content--text {
+      padding-top: 0;
+    }
+
     p {
       margin: 5px 0;
     }
@@ -347,7 +423,7 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) !important;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -396,6 +472,7 @@ export default {
 
           &::before {
             position: absolute;
+            border-radius: 5px;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
