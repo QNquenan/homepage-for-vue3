@@ -195,8 +195,8 @@ export default {
           content: 'Github'
         }
       ],
-      upTime: '2024-09-14',
-      version: 'beta1',
+      upTime: '2024-09-16',
+      version: 'beta2',
       gridRows: 9,
       gridCols: 5,
       active: false
