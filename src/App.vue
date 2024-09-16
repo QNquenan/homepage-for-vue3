@@ -97,12 +97,13 @@
 
           <p>你可以从这里访问 <b>我的博客、GitHub、哔哩哔哩、网易云歌单</b> 以及给我发 <b>邮件</b> ！</p>
           <p>本项目借鉴了
-            <b><a href="https://pzj.us.kg/">pzjawa</a></b> 、
-            <b><a href="https://www.liushen.fun/sites/">清羽飞扬</a></b>
+            <b><a href="https://pzj.us.kg/" target="_blank">pzjawa</a></b> 、
+            <b><a href="https://www.liushen.fun/sites/" target="_blank">清羽飞扬</a></b>
             等主页，感谢他们awa
           </p>
           <p>项目已经开源：</p>
-          <p><a href="https://github.com/QNquenan/homepage-for-vue3">https://github.com/QNquenan/homepage-for-vue3</a>
+          <p><a href="https://github.com/QNquenan/homepage-for-vue3"
+              target="_blank">https://github.com/QNquenan/homepage-for-vue3</a>
           </p>
         </vs-alert>
       </div>
