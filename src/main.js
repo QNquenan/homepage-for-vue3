@@ -5,7 +5,7 @@ import Vuesax from 'vuesax-alpha'
 import VueTyped from 'vue3-typed-js'
 import { MotionPlugin } from '@vueuse/motion'
 
-
+import './less/App.less'
 // style
 import 'vuesax-alpha/dist/index.css'
 // vuesax darkmode
