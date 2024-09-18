@@ -1,7 +1,8 @@
 <template>
   <div v-bind="appAttributes">
-    <div class="bgBox" v-motion :initial="{ opacity: 0, y: 25 }" :enter="{ opacity: 1, y: 0 }" :duration="1000">
-      <img src="https://i.p-i.vip/43/20240915-66e6e5abe3e97.webp" alt="">
+    <div class="bgBox" v-show="isLoaded" v-motion :initial="{ opacity: 0, y: 25 }" :enter="{ opacity: 1, y: 0 }"
+      :duration="1000">
+      <img src="https://i.p-i.vip/43/20240915-66e6e5abe3e97.webp" @load="imgLoad" alt="">
     </div>
 
     <div class="bgGrid">
@@ -228,6 +229,7 @@ export default {
       gridCols: 5,
       active: false,
       isDarkMode: true,
+      isLoaded: false,
       theme: 'system' // 默认是亮色模式
     }
   },
@@ -243,6 +245,9 @@ export default {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.applyTheme);
   },
   methods: {
+    imgLoad() {
+      this.isLoaded = true
+    },
     setTheme(mode) {
       this.theme = mode;
       localStorage.setItem('isTheme', mode)
