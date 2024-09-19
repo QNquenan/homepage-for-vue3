@@ -1,14 +1,105 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="zh-cn" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./src/assets/load.css">
   <link rel="icon" type="image/svg+xml" href="https://tuchuang.voooe.cn/images/2024/01/29/logo_icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>鹊楠の个人主页</title>
+  <script>
+    // 设置 html 的 data-theme 属性
+    console.log(localStorage.getItem('isTheme'))
+    const theme = localStorage.getItem('isTheme');
+    document.documentElement.setAttribute('data-theme', theme == 'system' || theme == null ? window.matchMedia('(prefers-color-scheme: dark)').matches : theme)
+
+    // 隐藏 loadBox
+    window.onload = () => {
+      document.querySelector('.loadBox').style.display = 'none';
+    };
+  </script>
 </head>
 
 <body>
+  <div class="loadBox">
+    <main class="loader-container">
+      <div class="loader-state">
+        <svg class="nyan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 47 20">
+          <defs>
+            <linearGradient id="rainbow-colors" x1="0.5" x2="0.5" y2="1">
+              <stop class="rainbow-color1" offset="0" />
+              <stop class="rainbow-color1" offset="0.167" />
+              <stop class="rainbow-color2" offset="0.167" />
+              <stop class="rainbow-color2" offset="0.335" />
+              <stop class="rainbow-color3" offset="0.335" />
+              <stop class="rainbow-color3" offset="0.5" />
+              <stop class="rainbow-color4" offset="0.5" />
+              <stop class="rainbow-color4" offset="0.669" />
+              <stop class="rainbow-color5" offset="0.669" />
+              <stop class="rainbow-color5" offset="0.833" />
+              <stop class="rainbow-color6" offset="0.833" />
+              <stop class="rainbow-color6" offset="1" />
+            </linearGradient>
+          </defs>
+          <g class="rainbow">
+            <rect />
+            <rect />
+            <rect />
+            <rect />
+            <rect />
+            <rect />
+          </g>
+          <g class="pig">
+            <g class="foot" transform="translate(52)">
+              <rect width="1" height="3" transform="translate(6 13)" />
+              <rect width="1" height="3" transform="translate(8 13)" />
+              <rect width="1" height="3" transform="translate(14 13)" />
+              <rect width="1" height="3" transform="translate(12 13)" />
+            </g>
+            <g class="tail">
+              <rect width="1" height="1" transform="translate(4 10)" />
+              <rect width="1" height="1" transform="translate(3 11)" />
+            </g>
+
+            <g transform="translate(52)">
+              <rect class="body1" width="8" height="8" transform="translate(7 6)" />
+              <rect class="body1" width="10" height="8" transform="translate(6 7)" />
+              <rect class="body1" width="12" height="6" transform="translate(5 8)" />
+              <rect class="body2" width="10" height="6" transform="translate(6 8)" />
+              <rect class="body2" width="8" height="6" transform="translate(7 7)" />
+              <rect class="stains" width="4" height="1" transform="translate(7 13)" />
+              <rect class="stains" width="2" height="1" transform="translate(8 12)" />
+              <rect class="stains" width="2" height="1" transform="translate(6 9)" />
+              <rect class="stains" width="3" height="1" transform="translate(6 8)" />
+              <rect class="stains" width="3" height="1" transform="translate(7 7)" />
+              <rect class="stains" width="1" height="1" transform="translate(14 7)" />
+            </g>
+            <g class="ears" transform="translate(52)">
+              <rect width="1" height="3" transform="translate(10 5)" />
+              <rect width="1" height="3" transform="translate(15 5)" />
+            </g>
+            <g class="snout">
+              <rect class="snout1" width="5" height="3" transform="translate(13 10)" />
+              <rect class="snout-holes" width="1" height="3" transform="translate(17 11) rotate(90)" />
+              <rect class="snout2" width="1" height="1" transform="translate(16 11) rotate(90)" />
+            </g>
+            <g class="eyes">
+              <rect width="1" height="1" transform="translate(12 9)" />
+              <rect width="1" height="1" transform="translate(15 9)" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <span class="loader-text">Loading...</span>
+      <div class="background-container">
+        <div class="stars"></div>
+      </div>
+    </main>
+  </div>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
 </body>

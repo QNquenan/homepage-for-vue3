@@ -1,0 +1,580 @@
+.loadBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    font: 0.9em "Press Start 2P";
+    text-transform: uppercase;
+    color: #ffffff;
+    background: var(--loadBg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+a {
+    color: #25364c;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+.settings {
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.settings li {
+    list-style-type: none;
+}
+
+.settings button {
+    max-width: 200px;
+    padding: 5px 0;
+    font: inherit;
+    font-size: clamp(12px, 3vw, 16px);
+    color: #ffffff;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    border: none;
+    transform-origin: right center;
+    background: none;
+}
+
+.settings button[data-skin="nyan"].active {
+    color: #f66b79;
+}
+
+.settings button[data-skin="devil"].active {
+    color: #ae1f2d;
+}
+
+.settings button[data-skin="alien"].active {
+    color: #319e47;
+}
+
+.settings button[data-skin="baguette"].active {
+    color: #fedea2;
+}
+
+.settings button.state-button {
+    margin-top: 20px;
+}
+
+.settings button.state-button.active {
+    color: #13b225;
+    text-decoration: none;
+}
+
+.settings button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+@media screen and (max-height: 500px) and (max-width: 750px) {
+    .settings {
+        display: none;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .settings button:hover:not(.active) {
+        transform: translateY(-2px);
+    }
+}
+
+.loader-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loader-container .loader-state+.loader-text {
+    display: block;
+    user-select: none;
+    opacity: 0;
+    transform: translate(10px, calc(20px * 1.5));
+    animation: loader-text-blink 0.4s ease-in-out infinite alternate;
+    color: var(--loadText);
+}
+
+@keyframes loader-text-blink {
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-height: 350px) {
+    .loader-container .loader-state+.loader-text {
+        display: none;
+    }
+}
+
+.loader-container .loader-state.enter-exit {
+    animation: appear 8s ease-in-out infinite forwards;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translate(-600px, 20px);
+    }
+
+    5%,
+    93% {
+        opacity: 0;
+    }
+
+    10% {
+        transform: translate(50px, 20px);
+    }
+
+    15% {
+        transform: translate(-50px, 20px);
+    }
+
+    20%,
+    90% {
+        opacity: 1;
+        transform: translate(0, 20px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(600px, 20px);
+    }
+}
+
+.loader-container .loader-state.enter-exit+.loader-text {
+    animation: loader-text-blink2 8s ease-in-out infinite forwards;
+}
+
+@keyframes loader-text-blink2 {
+
+    0%,
+    5%,
+    15%,
+    25%,
+    35%,
+    45%,
+    55%,
+    65%,
+    75%,
+    85%,
+    93%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    20%,
+    30%,
+    40%,
+    50%,
+    60%,
+    70%,
+    80%,
+    90% {
+        opacity: 1;
+    }
+}
+
+svg {
+    --flying-speed: 0.4s;
+    width: 100%;
+    max-width: 400px;
+    -webkit-mask-image: linear-gradient(to left, #0a0916 65%, transparent 85%);
+    mask-image: linear-gradient(to left, #0a0916 65%, transparent 85%);
+    animation: moves-like-jagger 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes moves-like-jagger {
+    to {
+        transform: translateY(20px);
+    }
+}
+
+.rainbow rect {
+    width: 5px;
+    height: 6px;
+    stroke: transparent;
+    fill: url(#rainbow-colors);
+}
+
+.rainbow rect:nth-child(1) {
+    transform: translate(25px, 8.4px);
+    animation: over-the-rainbow-1 0.4s ease-in-out 0.0666666667s infinite alternate;
+}
+
+@keyframes over-the-rainbow-1 {
+    to {
+        transform: translate(25px, 9.0666666667px);
+    }
+}
+
+.rainbow rect:nth-child(2) {
+    transform: translate(20.2px, 8.3px);
+    animation: over-the-rainbow-2 0.4s ease-in-out 0.1333333333s infinite alternate;
+}
+
+@keyframes over-the-rainbow-2 {
+    to {
+        transform: translate(20.2px, 9.6333333333px);
+    }
+}
+
+.rainbow rect:nth-child(3) {
+    transform: translate(15.4px, 8.2px);
+    animation: over-the-rainbow-3 0.4s ease-in-out 0.2s infinite alternate;
+}
+
+@keyframes over-the-rainbow-3 {
+    to {
+        transform: translate(15.4px, 10.2px);
+    }
+}
+
+.rainbow rect:nth-child(4) {
+    transform: translate(10.6px, 8.1px);
+    animation: over-the-rainbow-4 0.4s ease-in-out 0.2666666667s infinite alternate;
+}
+
+@keyframes over-the-rainbow-4 {
+    to {
+        transform: translate(10.6px, 10.7666666667px);
+    }
+}
+
+.rainbow rect:nth-child(5) {
+    transform: translate(5.8px, 8px);
+    animation: over-the-rainbow-5 0.4s ease-in-out 0.3333333333s infinite alternate;
+}
+
+@keyframes over-the-rainbow-5 {
+    to {
+        transform: translate(5.8px, 11.3333333333px);
+    }
+}
+
+.rainbow rect:nth-child(6) {
+    transform: translate(1px, 7.9px);
+    animation: over-the-rainbow-6 0.4s ease-in-out 0.4s infinite alternate;
+}
+
+@keyframes over-the-rainbow-6 {
+    to {
+        transform: translate(1px, 11.9px);
+    }
+}
+
+.nyan .rainbow-color1 {
+    stop-color: #e12523;
+}
+
+.nyan .rainbow-color2 {
+    stop-color: #dc8d30;
+}
+
+.nyan .rainbow-color3 {
+    stop-color: #deeb44;
+}
+
+.nyan .rainbow-color4 {
+    stop-color: #01eb3e;
+}
+
+.nyan .rainbow-color5 {
+    stop-color: #138fe9;
+}
+
+.nyan .rainbow-color6 {
+    stop-color: #7127ee;
+}
+
+.devil .rainbow-color1 {
+    stop-color: #d71440;
+}
+
+.devil .rainbow-color2 {
+    stop-color: #ff6c40;
+}
+
+.devil .rainbow-color3 {
+    stop-color: #ffce21;
+}
+
+.devil .rainbow-color4 {
+    stop-color: #ffce21;
+}
+
+.devil .rainbow-color5 {
+    stop-color: #ff6c40;
+}
+
+.devil .rainbow-color6 {
+    stop-color: #d71440;
+}
+
+.alien .rainbow-color1 {
+    stop-color: #12a921;
+}
+
+.alien .rainbow-color2 {
+    stop-color: #0fce22;
+}
+
+.alien .rainbow-color3 {
+    stop-color: #0fef25;
+}
+
+.alien .rainbow-color4 {
+    stop-color: #0fef25;
+}
+
+.alien .rainbow-color5 {
+    stop-color: #0fce22;
+}
+
+.alien .rainbow-color6 {
+    stop-color: #12a921;
+}
+
+.baguette .rainbow-color1 {
+    stop-color: #2465de;
+}
+
+.baguette .rainbow-color2 {
+    stop-color: #2465de;
+}
+
+.baguette .rainbow-color3 {
+    stop-color: #ffffff;
+}
+
+.baguette .rainbow-color4 {
+    stop-color: #ffffff;
+}
+
+.baguette .rainbow-color5 {
+    stop-color: #f1200d;
+}
+
+.baguette .rainbow-color6 {
+    stop-color: #f1200d;
+}
+
+svg.nyan {
+    --body1: #f19183;
+    --body2: #fcd8d7;
+    --stains: #fac4b8;
+    --eyes: #0c0b0b;
+    --ears: #f19183;
+    --snout1: #f79197;
+    --snout2: #f66b79;
+    --snout-holes: #e73b36;
+}
+
+svg.devil {
+    --body1: #410a07;
+    --body2: #bb1626;
+    --stains: #790813;
+    --eyes: #f0d459;
+    --ears: #2b1d05;
+    --snout1: #db2839;
+    --snout2: #ae1f2d;
+    --snout-holes: #900f0b;
+}
+
+svg.alien {
+    --body1: #116423;
+    --body2: #15a031;
+    --stains: #0f8b27;
+    --eyes: #ffffff;
+    --ears: #3dbc56;
+    --snout1: #3dbc56;
+    --snout2: #319e47;
+    --snout-holes: #196e2a;
+}
+
+svg.baguette {
+    --body1: #f89f39;
+    --body2: #fdb85a;
+    --stains: #fedda7;
+    --eyes: #0c0b0b;
+    --ears: #dc790f;
+    --snout1: #ffdea1;
+    --snout2: #fedea2;
+    --snout-holes: #f98d0e;
+}
+
+.pig {
+    position: relative;
+    transform: translate(-29px);
+}
+
+.pig .body2 {
+    fill: var(--body2);
+}
+
+.pig:hover {
+    cursor: pointer;
+}
+
+.pig .body1,
+.tail rect,
+.foot rect {
+    fill: var(--body1);
+}
+
+.stains {
+    fill: var(--stains);
+}
+
+.snout {
+    stroke: transparent;
+    transform: translate(52px);
+    animation: sniff-sniff 2s ease-in-out infinite;
+}
+
+.snout .snout1 {
+    fill: var(--snout1);
+}
+
+.snout .snout2 {
+    fill: var(--snout2);
+}
+
+.snout .snout-holes {
+    fill: var(--snout-holes);
+}
+
+@keyframes sniff-sniff {
+
+    5%,
+    15%,
+    25% {
+        transform: translate(52px);
+    }
+
+    10%,
+    20% {
+        transform: translate(52.5px);
+    }
+}
+
+.tail {
+    transform: translate(52.25px);
+    transform-origin: center;
+}
+
+.tail rect:nth-child(2) {
+    transform: translate(3.25px, 10.5px);
+    animation: fairy-tail 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes fairy-tail {
+    to {
+        transform: translate(3.25px, 10px);
+    }
+}
+
+.foot {
+    transform: translate(52px);
+    animation: hypnotic-feet 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes hypnotic-feet {
+    to {
+        transform: translate(52.5px);
+    }
+}
+
+.ears rect {
+    fill: var(--ears);
+}
+
+.eyes {
+    transform: translate(52px);
+}
+
+.eyes rect {
+    fill: var(--eyes);
+    animation: blinky-blinky 2s step-start infinite;
+}
+
+@keyframes blinky-blinky {
+    5% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0;
+    }
+}
+
+.heart {
+    animation: sweet-heart 0.6s ease-out;
+    transform: translate(33px, 4px);
+}
+
+@keyframes sweet-heart {
+    to {
+        transform: translate(33px, 0px);
+    }
+}
+
+.background-container {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    max-width: 800px;
+    height: 50%;
+    opacity: 0.8;
+    overflow: hidden;
+    -webkit-mask-image: radial-gradient(circle, #151333 0%, transparent 80%);
+    mask-image: radial-gradient(circle, #151333 0%, transparent 80%);
+}
+
+.background-container .stars {
+    width: 1740px;
+    height: 100%;
+    animation: through-the-stars 1.2s infinite linear;
+}
+
+@keyframes through-the-stars {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+footer {
+    text-align: center;
+    margin: auto auto 5vh auto;
+    padding: 0 5vw;
+    font-size: 0.6em;
+}
+
+@media screen and (max-height: 350px) {
+    footer {
+        display: none;
+    }
+}

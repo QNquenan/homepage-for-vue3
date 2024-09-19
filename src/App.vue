@@ -1,8 +1,7 @@
 <template>
-  <div v-bind="appAttributes">
-    <div class="bgBox" v-show="isLoaded" v-motion :initial="{ opacity: 0, y: 25 }" :enter="{ opacity: 1, y: 0 }"
-      :duration="1000">
-      <img src="https://i.p-i.vip/43/20240915-66e6e5abe3e97.webp" @load="imgLoad" alt="">
+  <div>
+    <div class="bgBox" v-motion :initial="{ opacity: 0, y: 25 }" :enter="{ opacity: 1, y: 0 }" :duration="1000">
+      <img src="https://i.p-i.vip/43/20240915-66e6e5abe3e97.webp" alt="">
     </div>
 
     <div class="bgGrid">
@@ -229,7 +228,6 @@ export default {
       gridCols: 5,
       active: false,
       isDarkMode: true,
-      isLoaded: false,
       theme: 'system' // 默认是亮色模式
     }
   },
@@ -240,14 +238,10 @@ export default {
     } else {
       this.applyTheme()
     }
-
     // 监听系统主题变化
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.applyTheme);
   },
   methods: {
-    imgLoad() {
-      this.isLoaded = true
-    },
     setTheme(mode) {
       this.theme = mode;
       localStorage.setItem('isTheme', mode)
@@ -273,5 +267,6 @@ export default {
 </script>
 
 <style lang="less">
-@import url(//at.alicdn.com/t/c/font_4685493_lrpbngzgvbk.css); // 阿里巴巴图标库
-@import url(https://fonts.googleapis.cn/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap); // 谷歌字体库</style>
+@import url(//at.alicdn.com/t/c/font_4685493_lrpbngzgvbk.css);
+/* 阿里巴巴图标库 */
+</style>

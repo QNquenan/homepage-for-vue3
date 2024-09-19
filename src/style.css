@@ -1,5 +1,24 @@
 :root {
-  font-family: JetBrainsMomo;
+  --mainColor: #000;
+  --bgColor: #fff;
+  --dialogBgColor: #fff;
+  --dialogColor: #2c3e50;
+  --reTheme: 30px;
+  --loadBg: #ffffff radial-gradient(circle at center, #f0f0f0 0%, #ffffff 80%) no-repeat;
+  --loadText: #2b2b2b;
+}
+
+[data-theme="dark"] {
+  --mainColor: #fff;
+  --bgColor: #000;
+  --dialogBgColor: #232323;
+  --dialogColor: #fff;
+  --loadBg: #0a0916 radial-gradient(circle at center, #151333 0%, #0a0916 80%) no-repeat;
+  --loadText: #fff;
+}
+
+* {
+  font-family: JetBrains Mono !important;
 }
 
 body {
