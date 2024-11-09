@@ -187,7 +187,7 @@ export default {
           icon: 'icon-wangyiyunyinle1',
           animate: '网易云',
           color: '#D81E06',
-          href: 'https://music.163.com/#/playlist?id=2696501847&creatorId=1785635020'
+          href: 'https://music.163.com/#/playlist?id=12715443514&creatorId=12568257210'
         },
       ],
       avaters: [
