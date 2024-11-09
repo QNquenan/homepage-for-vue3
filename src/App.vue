@@ -21,7 +21,7 @@
 
         <div class="infoText">
           <h1>Hi,</h1>
-          <h1>I'm <span class="qn">鹊楠</span></h1>
+          <h1>I'm <span class="qn">胜天半子</span></h1>
         </div>
       </div>
 
@@ -102,8 +102,8 @@
             等主页，感谢他们awa
           </p>
           <p>项目已经开源：</p>
-          <p><a href="https://github.com/QNquenan/homepage-for-vue3"
-              target="_blank">https://github.com/QNquenan/homepage-for-vue3</a>
+          <p><a href="https://github.com/zy111x/homepage-for-vue3"
+              target="_blank">https://github.com/zy111x/homepage-for-vue3</a>
           </p>
         </vs-alert>
       </div>
@@ -163,13 +163,13 @@ export default {
           icon: 'icon-wodeboke',
           animate: '博客',
           color: '#fe8599',
-          href: 'https://blog.quenan.love'
+          href: 'https://blog.291055.xyz'
         },
         {
           icon: 'icon-github',
           animate: 'Github',
           color: '#3d3d3d',
-          href: 'https://github.com/QNquenan'
+          href: 'https://github.com/zy111x'
         },
         {
           icon: 'icon-bilibili',
