@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bgBox" v-motion :initial="{ opacity: 0, y: 25 }" :enter="{ opacity: 1, y: 0 }" :duration="1000">
-      <img src="https://i.p-i.vip/43/20240915-66e6e5abe3e97.webp" alt="">
+      <img src="https://i1.wp.com/ruom.wuaze.com/i/2024/11/09/616803.webp" alt="">
     </div>
 
     <div class="bgGrid">
@@ -16,7 +16,7 @@
     <div class="main" v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1 }" :duration="1000">
       <div class="info">
         <div class="header">
-          <img src="https://i.p-i.vip/43/20240913-66e403f2331ec.webp" alt="">
+          <img src="https://i1.wp.com/ruom.wuaze.com/i/2024/11/09/003589.webp" alt="">
         </div>
 
         <div class="infoText">
@@ -175,7 +175,7 @@ export default {
           icon: 'icon-bilibili',
           animate: 'BiliBili',
           color: '#0BA6D8',
-          href: 'https://space.bilibili.com/495882959'
+          href: 'https://space.bilibili.com/506374001'
         },
         {
           icon: 'icon-youjian1',
