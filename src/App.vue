@@ -163,7 +163,7 @@ export default {
           icon: 'icon-wodeboke',
           animate: '博客',
           color: '#fe8599',
-          href: 'https://blog.quenan.love'
+          href: 'https://blog.quenan.cn'
         },
         {
           icon: 'icon-github',
@@ -222,8 +222,8 @@ export default {
           content: 'Github'
         }
       ],
-      upTime: '2024-09-16',
-      version: 'beta3',
+      upTime: '2025-03-17',
+      version: 'v3',
       gridRows: 9,
       gridCols: 5,
       active: false,
